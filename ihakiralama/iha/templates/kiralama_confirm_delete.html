@@ -1,0 +1,23 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>Kiralama Sil</h1>
+  <p>{{ kiralama.iha.marka }} {{ kiralama.iha.model }} kiralama kaydını silmek istediğinize emin misiniz?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Sil</button>
+  </form>
+  <a href="{% url 'kiralama_list' %}">İptal</a>
+{% endblock %}
+
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>Kiralama Sil</h1>
+  <p>{{ kiralama.iha.marka }} {{ kiralama.iha.model }} kiralama kaydını silmek istediğinize emin misiniz?</p>
+  <form method="post">
+    {% csrf_token %}
+    <button type="submit">Sil</button>
+  </form>
+  <a href="{% url 'kiralama_list' %}">İptal</a>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>İHA Listesi</h1>
+  <ul>
+    {% for iha in ihalar %}
+      <li><a href="{% url 'iha_detail' iha.pk %}">{{ iha.marka }} {{ iha.model }}</a></li>
+    {% endfor %}
+  </ul>
+  <a href="{% url 'iha_create' %}">Yeni İHA Ekle</a>
+{% endblock %}
+
+{% load render_table from django_tables2 %}
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>İHA Listesi</h1>
+  <form method="get">
+    {{ filter.form.as_p }}
+    <button type="submit">Ara</button>
+  </form>
+  {% render_table table %}
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base_generic.html' %}
+
+{% block content %}
+  <h1>{{ iha.marka }} {{ iha.model }}</h1>
+  <p>Ağırlık: {{ iha.agirlik }} kg</p>
+  <p>Kategori: {{ iha.kategori }}</p>
+  <p>Kiralanabilir: {{ iha.kiralanabilir }}</p>
+  <a href="{% url 'iha_update' iha.pk %}">Düzenle</a>
+  <form action="{% url 'iha_delete' iha.pk %}" method="post">
+    {% csrf_token %}
+    <button type="submit">Sil</button>
+  </form>
+{% endblock %}
